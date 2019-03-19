@@ -1,0 +1,21 @@
+---
+title: "Golf"
+author: "Austin Hill"
+date: "March 7, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyr)
+library(ggplot2)
+library(RCurl)
+
+```
+
+```{r}
+dat = read.csv(text=getURL("https://raw.githubusercontent.com/austinwhill/golf/master/PGATOUR_data2.csv"))
+
+ggplot(data = dat, aes(EVENTS_PLAYED, AVG_SCORE) ) + geom_point()
+```
+
